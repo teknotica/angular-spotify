@@ -1,0 +1,26 @@
+{
+    "scripts": {
+        "src": [
+            "bower_components/angular/angular.js",
+            "bower_components/angular-ui-router/release/angular-ui-router.js",
+            "app/app.js",
+            "app/states.js",
+            "app/scripts/services/*.js",
+            "app/scripts/components/**/*.js",
+            "app/scripts/controllers/*.js"
+        ]
+    },
+
+    "less": {
+        "src": [
+            "app/styles/main.less"
+        ]
+    },
+
+    "templates": {
+        "src": [
+            "index.html",
+            "app/**/**/*.html"
+        ]
+    }
+}
