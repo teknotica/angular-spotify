@@ -36460,12 +36460,7 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
     $stateProvider.state('home', {
         url: '/',
         templateUrl: 'views/home.html',
-        controller: 'HomeCtrl',
-        // resolve:  {
-        //     getSearchData: function() {
-        //
-        //     }
-        // }
+        controller: 'HomeCtrl'
     });
 }])
 
@@ -36503,8 +36498,6 @@ app.controller('HomeCtrl', ["$scope", "SpotifyService", function MainCtrl ($scop
     // Default search value
     $scope.currentSearch = "";
     $scope.artist = $scope.currentSearch;
-
-    $scope.list = {"test": "????"};
 
     $scope.searchApi = function() {
 

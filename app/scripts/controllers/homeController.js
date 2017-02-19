@@ -4,8 +4,6 @@ app.controller('HomeCtrl', function MainCtrl ($scope, SpotifyService) {
     $scope.currentSearch = "";
     $scope.artist = $scope.currentSearch;
 
-    $scope.list = {"test": "????"};
-
     $scope.searchApi = function() {
 
         if ($scope.artist !== $scope.currentSearch) {
