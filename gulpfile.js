@@ -42,9 +42,9 @@ gulp.task('connect', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch([config.templates.src], ['templates']);
-  gulp.watch([config.scripts.src], ['scripts']);
-  gulp.watch([config.less.src], ['less']);
+    gulp.watch([config.templates.src], ['templates']);
+    gulp.watch([config.scripts.src], ['scripts']);
+    gulp.watch([config.less.src], ['less']);
 });
 
 gulp.task('default', ['clean', 'scripts', 'less', 'templates', 'connect', 'watch']);

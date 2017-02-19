@@ -1,4 +1,27 @@
-<div class="artist-card">
-    <h2>Artist card</h2>
-    {{$ctrl.data}}
+<div class="artist-cards">
+
+    <div class="row">
+
+        <div class="col-md-12 total-results">
+            Total results: <span>{{ $ctrl.data.total }}</span>
+        </div>
+
+        <a ng-repeat="item in $ctrl.data.items" class="col-md-3 result-item"
+                ng-href="{{ item.external_urls.spotify }}">
+
+            <div class="result-item-inner" ng-style="$ctrl.getImageStyle(item)">
+
+                <div class="result-item-info">
+                    <ul>
+                        <li><h3>{{ item.name }}</h3></li>
+                        <li ng-if="item.album.name"><span>Album name: </span><span> {{ item.album.name }}</span></li>
+                        <li ng-if="item.track_number"><span>Track number: </span><span> {{ item.track_number }}</span></li>
+                        <li ng-if="item.popularity"><span>Popularity: </span>{{ item.popularity }}</li>
+                        <li ng-if="item.followers.total"><span>Followers: </span>{{ item.followers.total }}</li>
+                    </ul>
+                </div>
+            </div>
+        </a>
+    </div>
+
 </div>

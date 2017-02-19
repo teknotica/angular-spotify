@@ -13,7 +13,7 @@
 
     "less": {
         "src": [
-            "app/styles/main.less"
+            "app/styles/*.less"
         ]
     },
 

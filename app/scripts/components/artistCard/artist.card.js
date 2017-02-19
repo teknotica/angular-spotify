@@ -5,10 +5,16 @@ app.component('artistCard', {
         data: '='
     }
 })
-.controller('ArtistCardController', function($scope) {
+.controller('ArtistCardController', function() {
 
-    //  this.$onInit = function() {
-    //     console.log(this.data);
-    //  };
+    this.getImageStyle = function(track) {
 
+        var thumb = track.album.images[1] ? track.album.images[1].url : 'images/no_image.jpg';
+
+        var imageStyle = {
+            "background-image": "url(" + thumb + ")"
+        };
+
+        return imageStyle;
+    };
 })

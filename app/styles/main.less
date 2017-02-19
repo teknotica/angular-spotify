@@ -1,7 +1,108 @@
 @import (inline) "bower_components/bootstrap/dist/css/bootstrap.min.css";
+@import "bower_components/bootstrap/less/mixins/vendor-prefixes.less";
 
-@color-green: #2ebd59;
+// Palette
+@color-light-green: #d8ffe4;
+@color-green:       #2ebd59;
+@color-white:       #ffffff;
+@color-grey:        #8a8a8a;
 
 body {
-    background-color: @color-green;
+    font-family: 'Roboto', sans-serif;
+    background: rgba(147,206,222,1);
+    background: -moz-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(163,212,123,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(147,206,222,1)), color-stop(41%, rgba(117,189,209,1)), color-stop(100%, rgba(163,212,123,1)));
+    background: -webkit-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(163,212,123,1) 100%);
+    background: -o-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(163,212,123,1) 100%);
+    background: -ms-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(163,212,123,1) 100%);
+    background: linear-gradient(to right, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(163,212,123,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#a3d47b', GradientType=1 );
+}
+
+h1,
+h2,
+a,
+a:hover,
+a:active,
+a:focus {
+    color: @color-white;
+}
+
+.form-wrapper {
+
+    margin-top: 60px;
+
+    form {
+
+        input[type='text'] {
+            height: 45px;
+            border-radius: 0;
+            border: none;
+            font-size: 16px;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 12px 12px;
+            background-color: @color-green;
+            color: @color-white;
+            border: none;
+            border-radius: 0;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    }
+}
+
+.artist-cards {
+
+    margin-top: 60px;
+
+    .total-results {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: right;
+    }
+
+    .result-item {
+
+        margin-bottom: 30px;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 200px;
+            margin: auto;
+        }
+
+        &-inner {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: cover;
+            height: 263px;
+        }
+
+        &-info {
+            background-color: rgba(31, 28, 28, 0.8);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            .transition(opacity 800ms);
+
+            span {
+                font-weight: 300;
+                letter-spacing: 1px;
+            }
+        }
+
+        &:hover {
+            .result-item-info {
+                opacity: 1;
+            }
+        }
+    }
 }

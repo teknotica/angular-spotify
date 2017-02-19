@@ -36471,8 +36471,8 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
 
 app.factory('SpotifyService', ["$http", function ($http) {
     return {
-        searchByArtist: function(key) {
-            return $http.get('https://api.spotify.com/v1/search?q=' + encodeURIComponent(key) + '&type=artist');
+        searchTracks: function(key) {
+            return $http.get('https://api.spotify.com/v1/search?q=' + encodeURIComponent(key) + '&type=track');
         }
     }
 }])
@@ -36484,19 +36484,37 @@ app.component('artistCard', {
         data: '='
     }
 })
-.controller('ArtistCardController', ["$scope", function($scope) {
+.controller('ArtistCardController', function() {
 
-    //  this.$onInit = function() {
-    //     console.log(this.data);
-    //  };
+    this.getImageStyle = function(track) {
 
-}])
+        var thumb = track.album.images[1] ? track.album.images[1].url : 'images/no_image.jpg';
+
+        var imageStyle = {
+            "background-image": "url(" + thumb + ")"
+        };
+
+        return imageStyle;
+    };
+})
 
 app.controller('HomeCtrl', ["$scope", "SpotifyService", function MainCtrl ($scope, SpotifyService) {
 
+    // Default search value
+    $scope.currentSearch = "";
+    $scope.artist = $scope.currentSearch;
+
+    $scope.list = {"test": "????"};
+
     $scope.searchApi = function() {
-        SpotifyService.searchByArtist($scope.artist).then(function(result) {
-            $scope.list = result;
-        });
+
+        if ($scope.artist !== $scope.currentSearch) {
+
+            $scope.currentSearch = $scope.artist;
+
+            SpotifyService.searchTracks($scope.artist).then(function(result) {
+                $scope.list = result.data.tracks;
+            });
+        }
     };
 }])
